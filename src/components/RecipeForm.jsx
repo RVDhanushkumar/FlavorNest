@@ -13,7 +13,7 @@ const RecipeForm = () => {
     setError('');
     
     try {
-      const response = await axios.post('http://localhost:3001/recipe', {
+      const response = await axios.post('https://flavournestbackend.vercel.app/recipe', {
         foodItem: food,
       });
       setRecipe(response.data);

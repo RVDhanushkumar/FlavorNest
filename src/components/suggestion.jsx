@@ -14,7 +14,7 @@ const Suggestion = () => {
       return;
     }
 
-    axios.post('http://localhost:3001/suggestion', {
+    axios.post('https://flavournestbackend.vercel.app/suggestion', {
       ingredients: ingredients,
     })
     .then((response) => {

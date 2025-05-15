@@ -120,6 +120,7 @@ body{
   justify-content: center;
   gap: 2rem;
   animation: floatIn 1s ease;
+  height: 70vh;
 }
 
 .image-circle {

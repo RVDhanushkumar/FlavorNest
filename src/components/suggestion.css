@@ -3,6 +3,7 @@
     place-items:center;
     margin: 2rem 0;
     width: 100%;
+    animation: fadeIn 1s ease-in;
 }
 .suggestion-container h2{
     font-size: 2rem;
