@@ -1,38 +1,245 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.recipe-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 2.5rem 4rem;
+  background: linear-gradient(to right, #195348, #2a9856);
+  font-family: 'Georgia', serif;
   min-height: 100vh;
+  color: #fff;
+  box-sizing: border-box;
+  animation: fadeIn 1s ease-in;
+}
+
+.left-section {
+  width: 55%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  animation: slideUp 1s ease;
+}
+
+.heading {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #ffe;
+  font-weight: bold;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.recipe-input {
+  flex: 1;
+  padding: 1rem 1.2rem;
+  border-radius: 14px;
+  border: none;
+  font-size: 1.1rem;
+  outline: none;
+  background-color: #f4f4f4;
+  color: #333;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.recipe-input:focus {
+  background-color: #fff;
+  transform: scale(1.02);
+}
+
+.search-btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  background-color: #ff7043;
   color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 112, 67, 0.4);
 }
 
-.App-link {
-  color: #61dafb;
+.search-btn:hover {
+  background-color: #ff5722;
+  transform: scale(1.05);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.ingredients-process {
+  background-color: #fff;
+  color: #222;
+  border-radius: 1rem;
+  padding: 2rem;
+  line-height: 1.8;
+  text-align: start;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.8s ease-in;
+}
+
+.ingredients-process h3 {
+  color: #e65100;
+  margin-bottom: 1rem;
+}
+
+.ingredients-process ul,
+.ingredients-process ol {
+  margin-left: 1rem;
+  padding-left: 1.2rem;
+  list-style: square;
+}
+
+.ingredients-process li {
+  margin-bottom: 10px;
+  transition: transform 0.2s ease;
+}
+
+.ingredients-process li:hover {
+  transform: scale(1.01);
+  color: #3e2723;
+}
+
+.steps-list {
+  list-style-type: decimal;
+  line-height: 1.8;
+}
+
+.right-section {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+  gap: 2rem;
+  animation: floatIn 1s ease;
+}
+
+.image-circle {
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  border: 5px solid #fff;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.image-circle:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+.image1 {
+  background-image: url('./asset/food1.png');
+  width: 250px;
+  height: 250px;
+}
+
+.image2 {
+  background-image: url('./asset/food2.png');
+  width: 200px;
+  height: 200px;
+}
+
+.image3 {
+  background-image: url('./asset/food3.png');
+  width: 150px;
+  height: 150px;
+}
+
+.error {
+  color: #ffcccc;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* 🔄 Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    opacity: 1;
   }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatIn {
+  0% {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.brand-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #2a2a2a;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 1rem;
+  color: #333;
+  margin-left: 1.5rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #ff5722;
+}
+.content{
+  display:grid;
+  place-items:center;
+  padding:10px;
+  background-color: #f4f4f4;
+}
+.choice{
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #fff;
 }
