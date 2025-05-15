@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './RecipeForm.css';
 
 const RecipeForm = () => {
   const [food, setFood] = useState('');

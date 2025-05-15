@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import Cards from './cards.jsx';
+import './suggestion.css'; 
 const Suggestion = () => {
   const [ingredients, setIngredients] = useState('');
   const [suggestions, setSuggestions] = useState([]);
@@ -32,16 +33,17 @@ const Suggestion = () => {
   }, [suggestions]);
 
   return (
-    <div>
+    <div className="suggestion-container">
       <h2>Recipe Suggestions</h2>
       <div>
-        <p>Things you have in your home</p>
+        <p>Things you have in your kitchen👩‍🍳</p>
+        <div className="suggestion-search-bar">
         <input
           type="text"
           placeholder="Enter ingredients"
           className="recipe-input"
           onChange={(e) => setIngredients(e.target.value)}
-        />
+        /><br />
         <input
           type="button"
           value={loading ? "Loading..." : "Get Suggestions"}
@@ -49,17 +51,20 @@ const Suggestion = () => {
           onClick={sug}
           disabled={loading}
         />
+        </div>
       </div>
-      <div>
-        {!loading && suggestions.length > 0 && (
-          <ul>
-            {suggestions.map((item, index) => (
-              <li key={index}>{item.name} - {item.type}</li>
-            ))}
-          </ul>
+      <div className="suggestion-results">
+        {!loading && suggestions.length > 0 &&(<h3>Suggestions:</h3>) &&(
+            
+            suggestions.map((item, index) => (
+              <Cards
+                key={index}
+                name={item.name}
+                type={item.type}></Cards>
+            ))
         )}
         {!loading && suggestions.length === 0 && (
-          <p>No suggestions available.</p>
+          <p style={{maxWidth:"500px",textAlign:"center"}}>Who knows this may be your best chance to impress someone with your cooking skill😉</p>
         )}
       </div>
     </div>

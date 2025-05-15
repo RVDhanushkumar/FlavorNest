@@ -1,0 +1,68 @@
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 16px 20px;
+  margin: 15px;
+  max-width: 320px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  margin: 0;
+  color: #333;
+}
+
+.type-indicator {
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.type-indicator .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.card.veg .type-indicator .dot {
+  background-color: green;
+}
+
+.card.non-veg .type-indicator .dot {
+  background-color: red;
+}
+
+.card.veg {
+  border-left: 5px solid green;
+}
+
+.card.non-veg {
+  border-left: 5px solid red;
+}
+
+.results-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
